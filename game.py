@@ -52,6 +52,14 @@ poziom5 = [ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ]
 
+poziom6 = [ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
+            [0, 0, 0, 3, 3, 3, 3, 0, 0, 0],
+            [0, 4, 4, 3, 3, 3, 3, 4, 4, 0],
+            [0, 4, 4, 4, 4, 4, 4, 4, 4, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ]
+
 ekran = pygame.display.set_mode([SZEROKOSC_EKRANU,WYSOKOSC_EKRANU])
 zegar = pygame.time.Clock()
 obraz_tla = pygame.image.load(FOLDER+"/grafika/background.png")
@@ -76,7 +84,8 @@ def dodaj_klocki():
         wczytany_poziom = poziom4
     elif Poziom == 4:
         wczytany_poziom = poziom5
-
+    elif Poziom == 5:
+        wczytany_poziom = poziom6
     
     for i in range(10):
         for j in range(7):
@@ -106,7 +115,7 @@ while stan_gry:
 
     if len(klocki.sprites()) == 0:
         Poziom += 1
-        if Poziom >= 5:
+        if Poziom >= 6:
             break
         kulka.zresetuj_pozycje()
         platforma.zresetuj_pozycje()
