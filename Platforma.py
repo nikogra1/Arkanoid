@@ -16,7 +16,7 @@ class Platforma(pygame.sprite.Sprite):
     def aktualizuj(self):
         self.porusza_sie = 0
     def ruszaj_platforma(self,wartosc):
-        predkosc = 7
+        predkosc = 8
         self.porusza_sie = wartosc
         self.rect.move_ip(wartosc*predkosc,0)
         if self.rect.left <= 0:
