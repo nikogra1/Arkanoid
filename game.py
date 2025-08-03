@@ -118,9 +118,9 @@ while stan_gry:
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_RIGHT]:
-        platforma.ruszaj_platforma(2)
+        platforma.ruszaj_platforma(2.4)
     if keys[pygame.K_LEFT]:
-        platforma.ruszaj_platforma(-2)
+        platforma.ruszaj_platforma(-2.4)
 
     if len(klocki.sprites()) == 0:
         Poziom += 1
@@ -128,7 +128,7 @@ while stan_gry:
         platforma.zresetuj_pozycje()
         dodaj_klocki()
 
-    kulka.aktualizuj(2+kulka.punkty/10)
+    kulka.aktualizuj(2+kulka.punkty/20)
     klocki.update()
     platforma.aktualizuj()
     kulka.sprawdz_kolizje(platforma,klocki)
