@@ -22,7 +22,7 @@ class Kulka(pygame.sprite.Sprite):
         self.rect = self.obraz.get_rect(
             center = V2(SZEROKOSC_EKRANU/2,WYSOKOSC_EKRANU-140)
         )
-        self.kat_nachylenia=random.randint(-30,30)
+        self.kat_nachylenia=random.randint(-20,20)
         self.wektor = V2(0,-13)
         self.wektor.rotate_ip(self.kat_nachylenia)
         self.przegrana = False

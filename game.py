@@ -116,9 +116,9 @@ while stan_gry:
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_RIGHT]:
-        platforma.ruszaj_platforma(1+kulka.punkty/10)
+        platforma.ruszaj_platforma(2)
     if keys[pygame.K_LEFT]:
-        platforma.ruszaj_platforma(-1)
+        platforma.ruszaj_platforma(-2)
 
     if len(klocki.sprites()) == 0:
         Poziom += 1
