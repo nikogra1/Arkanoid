@@ -93,6 +93,8 @@ def dodaj_klocki():
         wczytany_poziom = poziom5
     elif Poziom == 5:
         wczytany_poziom = poziom6
+    elif Poziom >= 6:
+        wczytany_poziom = poziom_random
     
     for i in range(10):
         for j in range(7):
@@ -126,7 +128,7 @@ while stan_gry:
         platforma.zresetuj_pozycje()
         dodaj_klocki()
 
-    kulka.aktualizuj()
+    kulka.aktualizuj(2+kulka.punkty/10)
     klocki.update()
     platforma.aktualizuj()
     kulka.sprawdz_kolizje(platforma,klocki)
