@@ -1,6 +1,6 @@
 import pygame
 import os.path
-import time
+import random
 from Platforma import Platforma
 from Kulka import Kulka
 from klocek import Klocek
@@ -73,7 +73,14 @@ klocki = pygame.sprite.Group()
 def dodaj_klocki():
     
     wczytany_poziom = None
-
+    if Poziom > 6:
+        poziom_random = [ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), 0, 0],
+            [0, 0, random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), 0, 0],
+            [0, 0, random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), 0, 0],
+            [0, 0, random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ]
     if Poziom == 0:
         wczytany_poziom = poziom1
     elif Poziom == 1:
@@ -109,14 +116,12 @@ while stan_gry:
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_RIGHT]:
-        platforma.ruszaj_platforma(2)
+        platforma.ruszaj_platforma(1+kulka.punkty/10)
     if keys[pygame.K_LEFT]:
-        platforma.ruszaj_platforma(-2)
+        platforma.ruszaj_platforma(-1)
 
     if len(klocki.sprites()) == 0:
         Poziom += 1
-        if Poziom >= 6:
-            break
         kulka.zresetuj_pozycje()
         platforma.zresetuj_pozycje()
         dodaj_klocki()
