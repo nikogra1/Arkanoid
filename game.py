@@ -5,6 +5,7 @@ from Platforma import Platforma
 from Kulka import Kulka
 from klocek import Klocek
 lista = []
+FPS = int(input("Liczba fpsow: "))
 
 SZEROKOSC_EKRANU = 1024
 WYSOKOSC_EKRANU = 800
@@ -160,12 +161,12 @@ while stan_gry:
             Poziom -= 1
 
     if keys[pygame.K_RIGHT]:
-        platforma.ruszaj_platforma(2.4)
+        platforma.ruszaj_platforma(2.4,FPS)
         samouczek1 = True
         if samouczek2 == True:
             samouczek2 = False
     if keys[pygame.K_LEFT]:
-        platforma.ruszaj_platforma(-2.4)
+        platforma.ruszaj_platforma(-2.4,FPS)
         samouczek1 = True
         if samouczek2 == True:
             samouczek2 = False
@@ -176,7 +177,7 @@ while stan_gry:
         platforma.zresetuj_pozycje()
         dodaj_klocki(ekran)
 
-    kulka.aktualizuj(2+kulka.punkty/30)
+    kulka.aktualizuj(2+kulka.punkty/30,FPS)
     klocki.update()
     platforma.aktualizuj()
     kulka.sprawdz_kolizje(platforma,klocki)
@@ -219,6 +220,6 @@ while stan_gry:
     ekran.blit(text1,(16,740))
     ekran.blit(text2,(16,770))
     pygame.display.flip()
-    zegar.tick(60)
+    zegar.tick(FPS)
 pygame.quit()
 exit()

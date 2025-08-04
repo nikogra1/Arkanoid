@@ -26,9 +26,9 @@ class Kulka(pygame.sprite.Sprite):
         self.wektor = V2(0,-13)
         self.wektor.rotate_ip(self.kat_nachylenia)
         self.przegrana = False
-    def aktualizuj(self,szybkosc):
+    def aktualizuj(self,szybkosc,FPS):
         y,x = self.wektor/3
-        self.rect.move_ip(y*szybkosc,x*szybkosc)
+        self.rect.move_ip((y/(FPS//60))*szybkosc,(x/(FPS//60))*szybkosc)
     def sprawdz_kolizje(self,platforma:Platforma,klocki):
         # krawedzie ekranu
         if self.rect.left < 0:
