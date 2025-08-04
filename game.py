@@ -195,10 +195,10 @@ while stan_gry:
             text0 = czcionka.render("Używaj strzałek aby poruszać platformą",False,(255,255,255))
             ekran.blit(text0,(500,500))
     if samouczek2 == False:
-        if i < 30:
+        if i < 60:
             if Poziom == 0:
                 i += 1
-                text0 = czcionka.render("Nie pozwól aby piłka wypadła poza mapę",False,(255,255,255))
+                text0 = czcionka.render("Nie pozwól aby piłka wypadła poza mapę!",False,(255,255,255))
                 ekran.blit(text0,(500,500))
 
     text = czcionka.render(f"Życia {zycia}  Punkty: {kulka.punkty}  Poziom: {Poziom+1}",False,(255,255,255))
