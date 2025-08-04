@@ -200,18 +200,18 @@ while stan_gry:
     if samouczek1 == False:
         if Poziom == 0:
             text0 = czcionka.render("Używaj strzałek aby poruszać platformą",False,(255,255,255))
-            ekran.blit(text0,(500,500))
+            ekran.blit(text0,(500,300))
     if samouczek2 == False:
         if i < 60:
             if Poziom == 0:
                 i += 1
                 text0 = czcionka.render("Nie pozwól aby piłka wypadła poza mapę!",False,(255,255,255))
-                ekran.blit(text0,(500,500))
+                ekran.blit(text0,(500,300))
         if i >= 60 and i < 100:
             if Poziom == 0:
                 i += 1
                 text0 = czcionka.render("Miłej gry!",False,(255,255,255))
-                ekran.blit(text0,(500,500))
+                ekran.blit(text0,(500,300))
 
     text = czcionka.render(f"Życia {zycia}  Punkty: {kulka.punkty}  Poziom: {Poziom+1}",False,(255,255,255))
     text1 = czcionka.render("D tryb dewelopera",False,(255,255,255))
