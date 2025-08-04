@@ -143,6 +143,12 @@ while stan_gry:
     if keys[pygame.K_7]:
         if deweloper_mode == True:
             Poziom = 6
+    if keys[pygame.K_8]:
+        if deweloper_mode == True:
+            Poziom = 7
+    if keys[pygame.K_9]:
+        if deweloper_mode == True:
+            Poziom = 8
 
     if keys[pygame.K_RIGHT]:
         platforma.ruszaj_platforma(2.4)
