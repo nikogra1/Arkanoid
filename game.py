@@ -1,6 +1,7 @@
 import pygame
 import os.path
 import random
+import datetime
 from Platforma import Platforma
 from Kulka import Kulka
 from klocek import Klocek
@@ -24,6 +25,20 @@ samouczek = [ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ]
+poziom2025_12_04 = [ [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+            [2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ]
+poziom2025_10_04 = [ [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+            [1, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+            [1, 0, 0, 1, 2, 1, 0, 0, 0, 1],
+            [1, 0, 1, 2, 3, 2, 1, 0, 0, 1],
+            [1, 0, 0, 1, 2, 1, 0, 0, 0, 1],
+            [1, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+            [1, 0, 0, 0, 0, 0, 0, 0, 0, 1] ]
 poziom2 = [ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 4, 2, 4, 0, 0, 0, 0],
@@ -84,6 +99,12 @@ def dodaj_klocki(ekran):
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ]
     if Poziom == 0:
         wczytany_poziom = samouczek
+    if str(datetime.date.today()) == "2025-10-04":
+        if Poziom == 1:
+            wczytany_poziom = poziom2025_10_04
+    if str(datetime.date.today()) == "2025-12-04":
+        if Poziom == 1:
+            wczytany_poziom = poziom2025_12_04
     elif Poziom == 1:
         wczytany_poziom = poziom2
     elif Poziom == 2:
