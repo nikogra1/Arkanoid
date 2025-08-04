@@ -5,7 +5,7 @@ from Platforma import Platforma
 from Kulka import Kulka
 from klocek import Klocek
 lista = []
-FPS = int(input("Liczba fpsow: "))
+FPS = int(input("Liczba fpsow(zalecane 60): "))
 
 SZEROKOSC_EKRANU = 1024
 WYSOKOSC_EKRANU = 800
