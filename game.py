@@ -105,6 +105,7 @@ def dodaj_klocki():
 dodaj_klocki()
 
 stan_gry = True
+deweloper_mode = False
 
 while stan_gry:
     for zdarzenie in pygame.event.get():
@@ -119,6 +120,29 @@ while stan_gry:
 
     if keys[pygame.K_d]:
         zycia = 100
+        deweloper_mode = True
+    
+    if keys[pygame.K_1]:
+        if deweloper_mode == True:
+            Poziom = 0
+    if keys[pygame.K_2]:
+        if deweloper_mode == True:
+            Poziom = 1
+    if keys[pygame.K_3]:
+        if deweloper_mode == True:
+            Poziom = 2
+    if keys[pygame.K_4]:
+        if deweloper_mode == True:
+            Poziom = 3
+    if keys[pygame.K_5]:
+        if deweloper_mode == True:
+            Poziom = 4
+    if keys[pygame.K_6]:
+        if deweloper_mode == True:
+            Poziom = 5
+    if keys[pygame.K_7]:
+        if deweloper_mode == True:
+            Poziom = 6
 
     if keys[pygame.K_RIGHT]:
         platforma.ruszaj_platforma(2.4)
@@ -149,8 +173,10 @@ while stan_gry:
     ekran.blit(platforma.obraz,platforma.rect)
     ekran.blit(kulka.obraz,kulka.rect)
 
-    text = czcionka.render(f"Życia {zycia}  Punkty: {kulka.punkty}  Poziom: {Poziom+1} Ctrl+d tryb dewelopera",False,(255,255,255))
+    text = czcionka.render(f"Życia {zycia}  Punkty: {kulka.punkty}  Poziom: {Poziom+1} D tryb dewelopera",False,(255,255,255))
+    text2 =  czcionka.render("Jeżeli jesteś w trybie dewelopera klawiszami: 1,2,3,4,5,6,7 możesz zmieniać poziomy",False,(255,255,255))
     ekran.blit(text,(16,16))
+    ekran.blit(text2,(16,40))
     pygame.display.flip()
     zegar.tick(60)
 pygame.quit()
