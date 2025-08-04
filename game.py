@@ -200,6 +200,11 @@ while stan_gry:
                 i += 1
                 text0 = czcionka.render("Nie pozwól aby piłka wypadła poza mapę!",False,(255,255,255))
                 ekran.blit(text0,(500,500))
+        if i >= 60 and i < 100:
+            if Poziom == 0:
+                i += 1
+                text0 = czcionka.render("Miłej gry!",False,(255,255,255))
+                ekran.blit(text0,(500,500))
 
     text = czcionka.render(f"Życia {zycia}  Punkty: {kulka.punkty}  Poziom: {Poziom+1}",False,(255,255,255))
     text1 = czcionka.render("D tryb dewelopera",False,(255,255,255))
