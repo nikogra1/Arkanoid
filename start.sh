@@ -1,0 +1,1 @@
+python3 /run/media/niko/F82F-7B6B/nikodem/python/moje/Arkanoid/./game.py
