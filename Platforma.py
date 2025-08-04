@@ -18,7 +18,7 @@ class Platforma(pygame.sprite.Sprite):
     def ruszaj_platforma(self,wartosc,FPS):
         predkosc = 8
         self.porusza_sie = wartosc
-        self.rect.move_ip((wartosc/(FPS//60))*predkosc,0)
+        self.rect.move_ip((wartosc/((FPS//15)/4))*predkosc,0)
         if self.rect.left <= 0:
             self.rect.x = 0
         if self.rect.right >= SZEROKOSC_EKRANU:
