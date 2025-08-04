@@ -16,7 +16,7 @@ pygame.font.init()
 czcionka = pygame.font.SysFont("Comic Sans MS",24)
 
 # poziomy gry
-poziom1 = [ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+samouczek = [ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
             [0, 0, 0, 2, 2, 2, 2, 0, 0, 0],
@@ -70,7 +70,7 @@ Poziom = 0
 
 klocki = pygame.sprite.Group()
 
-def dodaj_klocki():
+def dodaj_klocki(ekran):
     
     wczytany_poziom = None
     if Poziom > 6:
@@ -82,7 +82,7 @@ def dodaj_klocki():
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ]
     if Poziom == 0:
-        wczytany_poziom = poziom1
+        wczytany_poziom = samouczek
     elif Poziom == 1:
         wczytany_poziom = poziom2
     elif Poziom == 2:
@@ -102,10 +102,11 @@ def dodaj_klocki():
                 klocek = Klocek(32 + i * 96, 32 + j * 48, wczytany_poziom[j][i])
                 klocki.add(klocek)
 
-dodaj_klocki()
+dodaj_klocki(ekran)
 
 stan_gry = True
 deweloper_mode = False
+samouczek1 = False
 
 while stan_gry:
     for zdarzenie in pygame.event.get():
@@ -152,14 +153,16 @@ while stan_gry:
 
     if keys[pygame.K_RIGHT]:
         platforma.ruszaj_platforma(2.4)
+        samouczek1 = True
     if keys[pygame.K_LEFT]:
         platforma.ruszaj_platforma(-2.4)
+        samouczek1 = True
 
     if len(klocki.sprites()) == 0:
         Poziom += 1
         kulka.zresetuj_pozycje()
         platforma.zresetuj_pozycje()
-        dodaj_klocki()
+        dodaj_klocki(ekran)
 
     kulka.aktualizuj(2+kulka.punkty/25)
     klocki.update()
@@ -178,6 +181,14 @@ while stan_gry:
         ekran.blit(klocek.obraz,klocek.rect)
     ekran.blit(platforma.obraz,platforma.rect)
     ekran.blit(kulka.obraz,kulka.rect)
+    
+
+
+    if samouczek1 == False:
+        if Poziom == 0:
+            text0 = czcionka.render("Używaj strzałek aby poruszać platformą",False,(255,255,255))
+            ekran.blit(text0,(500,500))
+    
 
     text = czcionka.render(f"Życia {zycia}  Punkty: {kulka.punkty}  Poziom: {Poziom+1}",False,(255,255,255))
     text1 = czcionka.render("D tryb dewelopera",False,(255,255,255))
