@@ -30,8 +30,6 @@ class Kulka(pygame.sprite.Sprite):
     def aktualizuj(self,szybkosc):
         y,x = self.wektor/3
         self.rect.move_ip(y*szybkosc+self.szybkosc1,x*szybkosc+self.szybkosc1)
-        if self.szybkosc1 == 1:
-            self.szybkosc1 = 0
     def sprawdz_kolizje(self,platforma:Platforma,klocki):
         # krawedzie ekranu
         if self.rect.left < 0:
@@ -79,9 +77,7 @@ class Kulka(pygame.sprite.Sprite):
         if dystans_x < self.r and dystans_y < self.r:
             if dystans_x < dystans_y:
                 self.wektor.y *= -1
-                self.szybkosc1 -= 1
             else:
                 self.wektor.x *= -1
-                self.szybkosc1 -= 1
             return True
         return False
