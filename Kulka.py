@@ -16,7 +16,6 @@ class Kulka(pygame.sprite.Sprite):
         self.rect = self.obraz.get_rect()
         self.r = 16
         self.punkty = 0
-        self.szybkosc1 = 0
         self.przegrana = False
         self.zresetuj_pozycje()
     def zresetuj_pozycje(self):
@@ -29,7 +28,7 @@ class Kulka(pygame.sprite.Sprite):
         self.przegrana = False
     def aktualizuj(self,szybkosc):
         y,x = self.wektor/3
-        self.rect.move_ip(y*szybkosc+self.szybkosc1,x*szybkosc+self.szybkosc1)
+        self.rect.move_ip(y*szybkosc*szybkosc)
     def sprawdz_kolizje(self,platforma:Platforma,klocki):
         # krawedzie ekranu
         if self.rect.left < 0:
