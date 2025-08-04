@@ -107,6 +107,8 @@ dodaj_klocki(ekran)
 stan_gry = True
 deweloper_mode = False
 samouczek1 = False
+samouczek2 = True
+i = 0
 
 while stan_gry:
     for zdarzenie in pygame.event.get():
@@ -154,9 +156,13 @@ while stan_gry:
     if keys[pygame.K_RIGHT]:
         platforma.ruszaj_platforma(2.4)
         samouczek1 = True
+        if samouczek2 == True:
+            samouczek2 = False
     if keys[pygame.K_LEFT]:
         platforma.ruszaj_platforma(-2.4)
         samouczek1 = True
+        if samouczek2 == True:
+            samouczek2 = False
 
     if len(klocki.sprites()) == 0:
         Poziom += 1
@@ -188,7 +194,12 @@ while stan_gry:
         if Poziom == 0:
             text0 = czcionka.render("Używaj strzałek aby poruszać platformą",False,(255,255,255))
             ekran.blit(text0,(500,500))
-    
+    if samouczek2 == False:
+        if i < 30:
+            if Poziom == 0:
+                i += 1
+                text0 = czcionka.render("Nie pozwól aby piłka wypadła poza mapę",False,(255,255,255))
+                ekran.blit(text0,(500,500))
 
     text = czcionka.render(f"Życia {zycia}  Punkty: {kulka.punkty}  Poziom: {Poziom+1}",False,(255,255,255))
     text1 = czcionka.render("D tryb dewelopera",False,(255,255,255))
