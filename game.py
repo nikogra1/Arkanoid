@@ -131,7 +131,7 @@ while stan_gry:
         platforma.zresetuj_pozycje()
         dodaj_klocki()
 
-    kulka.aktualizuj(2+kulka.punkty/20)
+    kulka.aktualizuj(2+kulka.punkty/25)
     klocki.update()
     platforma.aktualizuj()
     kulka.sprawdz_kolizje(platforma,klocki)
