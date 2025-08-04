@@ -181,7 +181,7 @@ while stan_gry:
 
     text = czcionka.render(f"Życia {zycia}  Punkty: {kulka.punkty}  Poziom: {Poziom+1}",False,(255,255,255))
     text1 = czcionka.render("D tryb dewelopera",False,(255,255,255))
-    text2 =  czcionka.render("Jeżeli jesteś w trybie dewelopera klawiszami: 1,2,3,4,5,6,7 możesz zmieniać poziomy",False,(255,255,255))
+    text2 =  czcionka.render("Jeżeli jesteś w trybie dewelopera klawiszami: 1,2,3,4,5,6,7,8,9 możesz zmieniać poziomy",False,(255,255,255))
     ekran.blit(text,(16,10))
     ekran.blit(text1,(16,740))
     ekran.blit(text2,(16,770))

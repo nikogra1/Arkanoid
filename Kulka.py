@@ -16,6 +16,7 @@ class Kulka(pygame.sprite.Sprite):
         self.rect = self.obraz.get_rect()
         self.r = 16
         self.punkty = 0
+        self.szybkosc1 = 0
         self.przegrana = False
         self.zresetuj_pozycje()
     def zresetuj_pozycje(self):
