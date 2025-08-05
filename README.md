@@ -10,6 +10,10 @@ linux:
 
 windows:
 
-1. Wejdź na python.org i pobierz instalator pythona
-2. Uruchom instalator i zainstaluj pythona z zaznaczoną opcją add to path
-3. Uruchom plik start.bat
+1. Uruchom terminal
+2. Wpisz w terminal git clone https://github.com/nikogra1/Arkanoid
+3. Wejdź na python.org i pobierz instalator pythona
+4. Uruchom instalator i zainstaluj pythona z zaznaczoną opcją add to path
+5. Uruchom plik install.bat
+6. Uruchom plik start.bat
+7. Gotowe!
