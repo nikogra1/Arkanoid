@@ -174,7 +174,7 @@ while stan_gry:
     if keys[pygame.K_9]:
         if deweloper_mode == True:
             Poziom = 8
-    if keys[pygame.K_PLUS]:
+    if keys[pygame.K_EQUALS] and keys[pygame.K_LCTRL] or keys[pygame.K_RCTRL]:
         if deweloper_mode == True:
             Poziom += 1
     if keys[pygame.K_MINUS]:
