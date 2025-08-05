@@ -25,14 +25,21 @@ samouczek = [ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ]
-poziom2025_12_04 = [ [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+poziom2025_08_12 = [ [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
             [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
             [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
             [3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
             [2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ]
-poziom2025_10_04 = [ [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+poziom2025_08_14 = [ [4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 1, 4, 4, 4, 4, 4],
+            [4, 4, 4, 1, 2, 1, 4, 4, 4, 4],
+            [4, 4, 1, 2, 3, 2, 1, 4, 4, 4],
+            [4, 4, 4, 1, 2, 1, 4, 4, 4, 4],
+            [4, 4, 4, 4, 1, 4, 4, 4, 4, 4],
+            [4, 4, 4, 4, 4, 4, 4, 4, 4, 4] ]
+poziom2025_08_10 = [ [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
             [1, 0, 0, 0, 1, 0, 0, 0, 0, 1],
             [1, 0, 0, 1, 2, 1, 0, 0, 0, 1],
             [1, 0, 1, 2, 3, 2, 1, 0, 0, 1],
@@ -81,7 +88,7 @@ zegar = pygame.time.Clock()
 obraz_tla = pygame.image.load(FOLDER+"/grafika/background.png")
 platforma = Platforma()
 kulka = Kulka()
-zycia = 3
+zycia = 5
 Poziom = 0
 
 klocki = pygame.sprite.Group()
@@ -99,12 +106,15 @@ def dodaj_klocki(ekran):
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ]
     if Poziom == 0:
         wczytany_poziom = samouczek
-    if str(datetime.date.today()) == "2025-10-04":
+    if str(datetime.date.today()) == "2025-08-10":
         if Poziom == 1:
-            wczytany_poziom = poziom2025_10_04
-    if str(datetime.date.today()) == "2025-12-04":
+            wczytany_poziom = poziom2025_08_10
+    if str(datetime.date.today()) == "2025-08-12":
         if Poziom == 1:
-            wczytany_poziom = poziom2025_12_04
+            wczytany_poziom = poziom2025_08_12
+    if str(datetime.date.today()) == "2025-08-14":
+        if Poziom == 1:
+            wczytany_poziom = poziom2025_08_14
     elif Poziom == 1:
         wczytany_poziom = poziom2
     elif Poziom == 2:
