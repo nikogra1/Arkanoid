@@ -33,15 +33,28 @@ class Kulka(pygame.sprite.Sprite):
         # krawedzie ekranu
         if self.rect.left < 0:
             self.wektor.x *= -1
+            pygame.mixer.init()
+            pygame.mixer.music.load("audio/sciana.mp3")
+            pygame.mixer.music.play()
         if self.rect.right > SZEROKOSC_EKRANU:
             self.wektor.x *= -1
+            pygame.mixer.init()
+            pygame.mixer.music.load("audio/sciana.mp3")
+            pygame.mixer.music.play()
         if self.rect.top < 0:
             self.wektor.y *= -1
+            pygame.mixer.init()
+            pygame.mixer.music.load("audio/sciana.mp3")
+            pygame.mixer.music.play()
         if self.rect.bottom > WYSOKOSC_EKRANU:
             self.przegrana = True
         # kolizja z platforma
         if self.rect.colliderect(platforma.rect):
             self.wektor.y *= -1
+
+            pygame.mixer.init()
+            pygame.mixer.music.load("audio/platform1.mp3")
+            pygame.mixer.music.play()
             
             srodekKulki = self.rect.centerx
             pozycjaPlatformy = platforma.rect.x
@@ -68,6 +81,9 @@ class Kulka(pygame.sprite.Sprite):
         for klocek in klocki:
             if self.kolizja_z_klockiem(klocek):
                 klocek.uderzenie()
+                pygame.mixer.init()
+                pygame.mixer.music.load("audio/klocek.mp3")
+                pygame.mixer.music.play()
                 self.punkty += 1
                 break
     def kolizja_z_klockiem(self,klocek):
