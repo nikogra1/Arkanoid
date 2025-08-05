@@ -14,6 +14,7 @@ windows:
 2. Wpisz w terminal git clone https://github.com/nikogra1/Arkanoid
 3. Wejdź na python.org i pobierz instalator pythona
 4. Uruchom instalator i zainstaluj pythona z zaznaczoną opcją add to path
-5. Uruchom plik install.bat
-6. Uruchom plik start.bat
-7. Gotowe!
+5. Uruchom explolator plików i wejdź do katalogu C:/Użytkownicy/(aktualny użytkownik)/Arkanoid
+6. Uruchom plik install.bat
+7. Uruchom plik start.bat
+8. Gotowe!
