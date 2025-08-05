@@ -11,7 +11,7 @@ linux:
 windows:
 
 1. Wejdź na https://git-scm.com/downloads i pobierz git na windows
-2. Następnie uruchom pobrany plik i ciągle klikaj next a jak zobaczysz zamiast next final to odznacz zaznaczone opcje i kliknij final
+2. Następnie uruchom pobrany plik i ciągle klikaj next a jak zobaczysz zamiast next finish to odznacz zaznaczone opcje i kliknij finish
 3. Uruchom terminal
 4. Wpisz w terminal git clone https://github.com/nikogra1/Arkanoid
 5. Wejdź na python.org i pobierz instalator pythona
