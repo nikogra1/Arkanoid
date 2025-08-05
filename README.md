@@ -7,3 +7,9 @@ linux:
 5. Uruchom plik install.sh
 6. Uruchom plik start.sh
 7. Gotowe!
+
+windows:
+
+1. Wejdź na python.org i pobierz instalator pythona
+2. Uruchom instalator i zainstaluj z zaznaczoną opcją add to path
+3. Uruchom plik start.bat
