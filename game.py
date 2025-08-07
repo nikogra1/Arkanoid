@@ -225,8 +225,6 @@ while stan_gry:
         ekran.blit(klocek.obraz,klocek.rect)
     ekran.blit(platforma.obraz,platforma.rect)
     ekran.blit(kulka.obraz,kulka.rect)
-    
-
 
     if samouczek1 == False:
         if Poziom == 0:
