@@ -6,7 +6,7 @@ from Platforma import Platforma
 from Kulka import Kulka
 from klocek import Klocek
 lista = []
-FPS = int(input("Liczba fpsow(zalecane 60): "))
+FPS = 60
 
 SZEROKOSC_EKRANU = 1024
 WYSOKOSC_EKRANU = 800
@@ -94,7 +94,7 @@ Poziom = 0
 klocki = pygame.sprite.Group()
 
 def dodaj_klocki(ekran):
-    
+    start = False
     wczytany_poziom = None
     if Poziom > 6:
         poziom_random = [ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -140,6 +140,7 @@ stan_gry = True
 deweloper_mode = False
 samouczek1 = False
 samouczek2 = True
+start = False
 i = 0
 
 while stan_gry:
@@ -194,11 +195,13 @@ while stan_gry:
     if keys[pygame.K_RIGHT]:
         platforma.ruszaj_platforma(2.4,FPS)
         samouczek1 = True
+        start = True
         if samouczek2 == True:
             samouczek2 = False
     if keys[pygame.K_LEFT]:
         platforma.ruszaj_platforma(-2.4,FPS)
         samouczek1 = True
+        start = True
         if samouczek2 == True:
             samouczek2 = False
 
@@ -207,8 +210,8 @@ while stan_gry:
         kulka.zresetuj_pozycje()
         platforma.zresetuj_pozycje()
         dodaj_klocki(ekran)
-
-    kulka.aktualizuj(2+kulka.punkty/30,FPS)
+    if start == True:
+        kulka.aktualizuj(2+kulka.punkty/30,FPS)
     klocki.update()
     platforma.aktualizuj()
     kulka.sprawdz_kolizje(platforma,klocki)
