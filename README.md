@@ -1,12 +1,14 @@
 linux:
 
 1. Uruchom terminal
-2. Wpisz w terminal git clone https://github.com/nikogra1/Arkanoid
-3. Powinien utworzyć się katalog Arkanoid
-4. Przejdź do niego
-5. Uruchom plik install.sh
-6. Uruchom plik start.sh
-7. Gotowe!
+2. Wpisz w terminal sudo apt install git
+3. Wpisz w terminal sudo dnf install git
+4. Wpisz w terminal git clone https://github.com/nikogra1/Arkanoid
+5. Powinien utworzyć się katalog Arkanoid
+6. Przejdź do niego
+7. Uruchom plik install.sh
+8. Uruchom plik start.sh
+9. Gotowe!
 
 windows:
 
