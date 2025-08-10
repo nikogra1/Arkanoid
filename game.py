@@ -2,9 +2,15 @@ import pygame
 import os.path
 import random
 import datetime
+import json
 from Platforma import Platforma
 from Kulka import Kulka
 from klocek import Klocek
+print("1.Nowa gra bez zapisu")
+print("2.Nowa gra z zapisem")
+print("3.Wczytaj gre")
+wybor = input("")
+
 lista = []
 FPS = 60
 
@@ -87,16 +93,14 @@ ekran = pygame.display.set_mode([SZEROKOSC_EKRANU,WYSOKOSC_EKRANU])
 zegar = pygame.time.Clock()
 obraz_tla = pygame.image.load(FOLDER+"/grafika/background.png")
 platforma = Platforma()
-kulka = Kulka()
-zycia = 5
-Poziom = 0
+kulka = Kulka(wybor)
 
 klocki = pygame.sprite.Group()
 
 def dodaj_klocki(ekran):
     start = False
     wczytany_poziom = None
-    if Poziom > 6:
+    if kulka.Poziom > 6:
         poziom_random = [ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), 0],
             [0, random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), 0],
@@ -104,28 +108,28 @@ def dodaj_klocki(ekran):
             [0, random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ]
-    if Poziom == 0:
+    if kulka.Poziom == 0:
         wczytany_poziom = samouczek
     if str(datetime.date.today()) == "2025-08-10":
-        if Poziom == 1:
+        if kulka.Poziom == 1:
             wczytany_poziom = poziom2025_08_10
     if str(datetime.date.today()) == "2025-08-12":
-        if Poziom == 1:
+        if kulka.Poziom == 1:
             wczytany_poziom = poziom2025_08_12
     if str(datetime.date.today()) == "2025-08-14":
-        if Poziom == 1:
+        if kulka.Poziom == 1:
             wczytany_poziom = poziom2025_08_14
-    elif Poziom == 1:
+    elif kulka.Poziom == 1:
         wczytany_poziom = poziom2
-    elif Poziom == 2:
+    elif kulka.Poziom == 2:
         wczytany_poziom = poziom3
-    elif Poziom == 3:
+    elif kulka.Poziom == 3:
         wczytany_poziom = poziom4
-    elif Poziom == 4:
+    elif kulka.Poziom == 4:
         wczytany_poziom = poziom5
-    elif Poziom == 5:
+    elif kulka.Poziom == 5:
         wczytany_poziom = poziom6
-    elif Poziom >= 6:
+    elif kulka.Poziom >= 6:
         wczytany_poziom = poziom_random
     
     for i in range(10):
@@ -206,7 +210,8 @@ while stan_gry:
             samouczek2 = False
 
     if len(klocki.sprites()) == 0:
-        Poziom += 1
+        kulka.data["level"] += 1
+        kulka.Poziom += 1
         kulka.zresetuj_pozycje()
         platforma.zresetuj_pozycje()
         dodaj_klocki(ekran)
@@ -217,8 +222,8 @@ while stan_gry:
     kulka.sprawdz_kolizje(platforma,klocki)
 
     if kulka.przegrana:
-        zycia -= 1
-        if zycia <= 0:
+        kulka.zycia -= 1
+        if kulka.zycia <= 0:
             stan_gry = False
         kulka.zresetuj_pozycje()
         platforma.zresetuj_pozycje()
@@ -230,22 +235,22 @@ while stan_gry:
     ekran.blit(kulka.obraz,kulka.rect)
 
     if samouczek1 == False:
-        if Poziom == 0:
+        if kulka.Poziom == 0:
             text0 = czcionka.render("Używaj strzałek aby poruszać platformą",False,(255,255,255))
             ekran.blit(text0,(500,300))
     if samouczek2 == False:
         if i < 60:
-            if Poziom == 0:
+            if kulka.Poziom == 0:
                 i += 1
                 text0 = czcionka.render("Nie pozwól aby piłka wypadła poza mapę!",False,(255,255,255))
                 ekran.blit(text0,(500,300))
         if i >= 60 and i < 100:
-            if Poziom == 0:
+            if kulka.Poziom == 0:
                 i += 1
                 text0 = czcionka.render("Miłej gry!",False,(255,255,255))
                 ekran.blit(text0,(500,300))
 
-    text = czcionka.render(f"Życia {zycia}  Punkty: {kulka.punkty}  Poziom: {Poziom+1}",False,(255,255,255))
+    text = czcionka.render(f"Życia {kulka.zycia}  Punkty: {kulka.punkty}  Poziom: {kulka.Poziom+1}",False,(255,255,255))
     text1 = czcionka.render("D tryb dewelopera",False,(255,255,255))
     text2 =  czcionka.render("Jeżeli jesteś w trybie dewelopera klawiszami: 1,2,3,4,5,6,7,8,9,+,- możesz zmieniać poziomy",False,(255,255,255))
     ekran.blit(text,(16,10))

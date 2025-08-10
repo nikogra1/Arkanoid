@@ -4,18 +4,39 @@ import random
 from pygame.math import Vector2 as V2
 from Platforma import Platforma
 from klocek import Klocek
+import json
 
 SZEROKOSC_EKRANU = 1024
 WYSOKOSC_EKRANU = 800
 MAX_PREDKOSC_KULKI = 15
 FOLDER = os.path.dirname(__file__)
 class Kulka(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self,wybor):
         super().__init__()
         self.obraz = pygame.image.load(FOLDER+"/grafika/ball.png")
         self.rect = self.obraz.get_rect()
         self.r = 16
+        self.zycia = 5
+        self.Poziom = 0
         self.punkty = 0
+        if wybor == "2":
+            self.file_name = input("Nazwa pliku na ta gre: ")
+            self.file = open("saves/"+self.file_name, 'a')
+        
+        if wybor == "3":
+            self.file_name = input("Nazwa pliku z gra: ")
+            self.file = open("saves/"+self.file_name, 'r')
+            self.read_content = self.file.read()
+            self.read_content = json.loads(self.read_content)
+            self.zycia = self.read_content["lives"]
+            self.Poziom = self.read_content["level"]
+            self.punkty = self.read_content["points"]
+
+        self.data = {
+        "points":0,
+        "lives":5,
+        "level":0
+        }
         self.przegrana = False
         self.zresetuj_pozycje()
     def zresetuj_pozycje(self):
@@ -47,6 +68,10 @@ class Kulka(pygame.sprite.Sprite):
             pygame.mixer.music.load("audio/sciana.mp3")
             pygame.mixer.music.play()
         if self.rect.bottom > WYSOKOSC_EKRANU:
+            self.file = open("saves/"+self.file_name, 'w')
+            self.data["lives"] -= 1
+            self.file.write(json.dumps(self.data))
+            self.file.close()
             self.przegrana = True
         # kolizja z platforma
         if self.rect.colliderect(platforma.rect):
@@ -80,12 +105,15 @@ class Kulka(pygame.sprite.Sprite):
         # kolizja z klockami
         for klocek in klocki:
             if self.kolizja_z_klockiem(klocek):
+                self.file = open("saves/"+self.file_name, 'w')
+                self.data["points"] += 1
+                self.file.write(json.dumps(self.data))
+                self.file.close()
                 klocek.uderzenie()
                 pygame.mixer.init()
                 pygame.mixer.music.load("audio/klocek.mp3")
                 pygame.mixer.music.play()
                 self.punkty += 1
-                break
     def kolizja_z_klockiem(self,klocek):
         dystans_x = abs(self.rect.centerx - klocek.rect.centerx) - klocek.rect.w / 2
         dystans_y = abs(self.rect.centery - klocek.rect.centery) - klocek.rect.h / 2
