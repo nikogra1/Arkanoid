@@ -108,9 +108,7 @@ def dodaj_klocki(ekran):
             [0, random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), random.randint(0,4), 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ]
-    if kulka.Poziom == 0:
-        wczytany_poziom = samouczek
-    elif str(datetime.date.today()) == "2025-08-10":
+    if str(datetime.date.today()) == "2025-08-10":
         if kulka.Poziom == 1:
             wczytany_poziom = poziom2025_08_10
     elif str(datetime.date.today()) == "2025-08-12":
@@ -119,6 +117,8 @@ def dodaj_klocki(ekran):
     elif str(datetime.date.today()) == "2025-08-14":
         if kulka.Poziom == 1:
             wczytany_poziom = poziom2025_08_14
+    if kulka.Poziom == 0:
+        wczytany_poziom = samouczek
     elif kulka.Poziom == 1:
         wczytany_poziom = poziom2
     elif kulka.Poziom == 2:
