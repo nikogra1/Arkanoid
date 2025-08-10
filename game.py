@@ -110,13 +110,13 @@ def dodaj_klocki(ekran):
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] ]
     if kulka.Poziom == 0:
         wczytany_poziom = samouczek
-    if str(datetime.date.today()) == "2025-08-10":
+    elif str(datetime.date.today()) == "2025-08-10":
         if kulka.Poziom == 1:
             wczytany_poziom = poziom2025_08_10
-    if str(datetime.date.today()) == "2025-08-12":
+    elif str(datetime.date.today()) == "2025-08-12":
         if kulka.Poziom == 1:
             wczytany_poziom = poziom2025_08_12
-    if str(datetime.date.today()) == "2025-08-14":
+    elif str(datetime.date.today()) == "2025-08-14":
         if kulka.Poziom == 1:
             wczytany_poziom = poziom2025_08_14
     elif kulka.Poziom == 1:

@@ -19,6 +19,7 @@ class Kulka(pygame.sprite.Sprite):
         self.zycia = 5
         self.Poziom = 0
         self.punkty = 0
+        self.wybor = wybor
         if wybor == "2":
             self.file_name = input("Nazwa pliku na ta gre: ")
             self.file = open("saves/"+self.file_name, 'a')
@@ -68,10 +69,11 @@ class Kulka(pygame.sprite.Sprite):
             pygame.mixer.music.load("audio/sciana.mp3")
             pygame.mixer.music.play()
         if self.rect.bottom > WYSOKOSC_EKRANU:
-            self.file = open("saves/"+self.file_name, 'w')
-            self.data["lives"] -= 1
-            self.file.write(json.dumps(self.data))
-            self.file.close()
+            if self.wybor == "2" or self.wybor == "3":
+                self.file = open("saves/"+self.file_name, 'w')
+                self.data["lives"] -= 1
+                self.file.write(json.dumps(self.data))
+                self.file.close()
             self.przegrana = True
         # kolizja z platforma
         if self.rect.colliderect(platforma.rect):
@@ -105,10 +107,11 @@ class Kulka(pygame.sprite.Sprite):
         # kolizja z klockami
         for klocek in klocki:
             if self.kolizja_z_klockiem(klocek):
-                self.file = open("saves/"+self.file_name, 'w')
-                self.data["points"] += 1
-                self.file.write(json.dumps(self.data))
-                self.file.close()
+                if self.wybor == "2" or self.wybor == "3":
+                    self.file = open("saves/"+self.file_name, 'w')
+                    self.data["points"] += 1
+                    self.file.write(json.dumps(self.data))
+                    self.file.close()
                 klocek.uderzenie()
                 pygame.mixer.init()
                 pygame.mixer.music.load("audio/klocek.mp3")
