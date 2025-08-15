@@ -32,12 +32,18 @@ class Kulka(pygame.sprite.Sprite):
             self.zycia = self.read_content["lives"]
             self.Poziom = self.read_content["level"]
             self.punkty = self.read_content["points"]
-
-        self.data = {
-        "points":0,
-        "lives":5,
-        "level":0
-        }
+        if wybor == 3 or wybor == 2:
+            self.data = {
+            "points":self.punkty,
+            "lives":self.zycia,
+            "level":self.punkty
+            }
+        else:
+            self.data = {
+            "points":0,
+            "lives":5,
+            "level":0
+            }
         self.przegrana = False
         self.zresetuj_pozycje()
     def zresetuj_pozycje(self):
@@ -126,4 +132,5 @@ class Kulka(pygame.sprite.Sprite):
             else:
                 self.wektor.x *= -1
             return True
+
         return False
