@@ -32,7 +32,7 @@ class Kulka(pygame.sprite.Sprite):
             self.zycia = self.read_content["lives"]
             self.Poziom = self.read_content["level"]
             self.punkty = self.read_content["points"]
-        if wybor == 3 or wybor == 2:
+        if wybor == "3" or wybor == "2":
             self.data = {
             "points":self.punkty,
             "lives":self.zycia,
@@ -134,3 +134,4 @@ class Kulka(pygame.sprite.Sprite):
             return True
 
         return False
+
