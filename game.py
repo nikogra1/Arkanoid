@@ -1,4 +1,4 @@
-import pygame
+contentimport pygame
 import os.path
 import random
 import datetime
@@ -12,6 +12,8 @@ print("3.Wczytaj gre")
 wybor = input("")
 
 lista = []
+File2 = open("fps.json","a")
+read_content = File2.read()
 FPS = 60
 
 SZEROKOSC_EKRANU = 1024
