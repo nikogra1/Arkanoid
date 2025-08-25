@@ -200,13 +200,13 @@ while stan_gry:
             Poziom -= 1
 
     if keys[pygame.K_RIGHT]:
-        platforma.ruszaj_platforma(2.4,FPS)
+        platforma.ruszaj_platforma(2.4,FPS,kulka.szybkosc)
         samouczek1 = True
         start = True
         if samouczek2 == True:
             samouczek2 = False
     if keys[pygame.K_LEFT]:
-        platforma.ruszaj_platforma(-2.4,FPS)
+        platforma.ruszaj_platforma(-2.4,FPS,kilka.szybkosc)
         samouczek1 = True
         start = True
         if samouczek2 == True:
