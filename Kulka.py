@@ -7,8 +7,7 @@ from klocek import Klocek
 import json
 
 SZEROKOSC_EKRANU = 1024
-WYSOKOSC_EKRANU = 800
-MAX_PREDKOSC_KULKI = 15
+WYSOKOSC_EKRANU = 800
 FOLDER = os.path.dirname(__file__)
 class Kulka(pygame.sprite.Sprite):
     def __init__(self,wybor):
@@ -20,6 +19,10 @@ class Kulka(pygame.sprite.Sprite):
         self.Poziom = 0
         self.punkty = 0
         self.wybor = wybor
+        self.szybkosc = open("config.json","r")
+        self.szybkosc = json.loads(self.szybkosc)
+        self.szybkosc = self.szybkosc["szybkość"]
+        MAX_PREDKOSC_KULKI = 15*self.szybkosc
         if wybor == "2":
             self.file_name = input("Nazwa pliku na ta gre: ")
             self.file = open("saves/"+self.file_name, 'a')
@@ -56,7 +59,7 @@ class Kulka(pygame.sprite.Sprite):
         self.przegrana = False
     def aktualizuj(self,szybkosc,FPS):
         y,x = self.wektor/3
-        self.rect.move_ip((y/((FPS//(15/8))/32))*szybkosc,(x/((FPS//(15/8))/32))*szybkosc)
+        self.rect.move_ip((y/((FPS//(15/8))/32))*szybkosc*self.szybkosc,(x/((FPS//(15/8))/32))*szybkosc*self.szybkosc)
     def sprawdz_kolizje(self,platforma:Platforma,klocki):
         # krawedzie ekranu
         if self.rect.left < 0:
