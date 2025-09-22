@@ -1,3 +1,5 @@
+!!UWAGA!! Aktualna wersja się nie uruchamia aby zagrać trzeba pobrać starszą wersję.
+
 linux:
 
 1. Uruchom terminal
@@ -25,4 +27,3 @@ windows:
 9. Uruchom plik start.bat
 10. Gotowe!
 
-!!UWAGA!! Aktualna wersja się nie uruchamia aby zagrać trzeba pobrać starszą wersję.
