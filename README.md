@@ -24,3 +24,5 @@ windows:
 8. Uruchom plik install.bat
 9. Uruchom plik start.bat
 10. Gotowe!
+
+!!UWAGA!! Aktualna wersja się nie uruchamia aby zagrać trzeba pobrać starszą wersję.
