@@ -1,4 +1,4 @@
-!!UWAGA!! Aktualna wersja się nie uruchamia aby zagrać trzeba pobrać starszą wersję.
+!!UWAGA!! Aktualna i poprzednia wersja się nie uruchamia aby zagrać trzeba pobrać starszą wersję.
 
 linux:
 
