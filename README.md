@@ -4,7 +4,7 @@ linux:
 
 1. Uruchom terminal
 2. Wpisz w terminal sudo apt install git
-3. Wpisz w terminal sudo dnf install git
+3. Jeżeli sudo apt instal git nie zadziaławpisz w terminal sudo dnf install git
 4. Wpisz w terminal git clone https://github.com/nikogra1/Arkanoid
 5. Powinien utworzyć się katalog Arkanoid
 6. Wpisz w terminal cd Arkanoid
